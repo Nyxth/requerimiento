@@ -1,0 +1,44 @@
+create database Requerimiento;
+use Requerimiento;
+create table user (
+id_usuario int unsigned auto_increment not null,
+name_usuario varchar (50) not null,
+password_usuario varchar (50) not null,
+primary key (id_usuario));
+
+create table gerencia (
+id_gerencia int not null,
+nombre_gerencia varchar (50) not null,
+primary key (id_gerencia));
+
+create table departamento (
+id_departamento int not null,
+nombre_departamento varchar (50) not null,
+primary key (id_departamento));
+
+create table Encargado (
+id_encarg int not null,
+name_encargado varchar (50) not null,
+primary key (id_encarg));
+
+create table asignar (
+id_asignar int not null,
+asignar varchar (50) not null,
+primary key (id_asignar));
+
+
+create table Requerimiento (
+idReque int auto_increment not null,
+requerimiento varchar (250) not null,
+id_gerencia int not null,
+id_departamento int not null,
+id_encargado int not null,
+id_asignar int not null,
+primary key (idReque),
+foreign key (id_gerencia) references gerencia(id_gerencia),
+foreign key (id_Departamento) references Departamento (id_departamento),
+foreign key (id_encargado) references encargado (id_Encarg),
+foreign key (id_asignar) references asignar(id_asignar));
+
+
+insert into user values (1,'nyxth','medina12');
